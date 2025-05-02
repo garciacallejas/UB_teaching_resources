@@ -1,6 +1,8 @@
 
-this is a temporary, demonstrative repository, to share code and resources with students.
+Repositorio temporal y demostrativo para compartir materiales relacionados con el concurso a plazas de Profesor Lector en Ecología (Universitat de Barcelona).
 
-It includes a folder /code with small scripts to reinforce ecological concepts, 
-and a folder /resources with suggested additional readings.
+El repositorio incluye:
 
+1) Transparencias de las presentaciones de la segunda fase del concurso.
+2) Carpeta /code con scripts de R asociados a la clase de la segunda fase.
+3) Carpeta /resources con lecturas sugeridas adicionales sobre el tema presentado.
