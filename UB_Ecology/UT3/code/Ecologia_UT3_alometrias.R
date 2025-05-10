@@ -2,25 +2,26 @@ library(tidyverse)
 library(patchwork)
 
 # -------------------------------------------------------------------------
-# code for plotting scaling relationships
+# codigo para graficar leyes de potencia
 
-# Create a sequence of x values
+# Crear secuencia de valores
 x_vals <- seq(1, 10, length.out = 100)
 
-# Define exponents b to visualize
+# Definir exponentes
 b_values <- c(2, 1, 0.5, -1)
 
-# Create a data frame with y = x^b for each b
+# generar la relacion alométrica
 df <- expand.grid(x = x_vals, b = b_values) %>%
   mutate(y = x^b,
-         b_label = paste("alpha =", b))  # for nicer facet labels
+         b_label = paste("alpha =", b)) 
 
-# Plot with ggplot2
+# -------------------------------------------------------------------------
+
+# creamos la gráfica
 linear_plot <- ggplot(df, aes(x = x, y = y)) +
   geom_line(linewidth = 1.2) +
   facet_wrap(~ b_label, scales = "free_y",nrow = 1) +
   labs(
-    # title = "Shapes of Power Law Relationships in Standard Coordinates",
     x = "x",
     y = expression(paste("y = ",x^{alpha}))
   ) +
@@ -30,10 +31,11 @@ log_plot <- ggplot(df, aes(x = log(x), y = log(y))) +
   geom_line(linewidth = 1.2) +
   facet_wrap(~ b_label, scales = "free_y",nrow = 1) +
   labs(
-    # title = "Shapes of Power Law Relationships in Standard Coordinates",
     x = "log(x)",
     y = expression(paste("log(y) =",alpha,"* log(x)"))
   ) +
   theme_minimal(base_size = 14)
+
+# -------------------------------------------------------------------------
 
 linear_plot/log_plot

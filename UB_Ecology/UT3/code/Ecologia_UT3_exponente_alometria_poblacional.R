@@ -1,5 +1,8 @@
 library(tidyverse)
 
+# -------------------------------------------------------------------------
+# codigo para explorar la relación alométrica entre gasto energético poblacional y masa corporal
+
 # rango de masa corporal (escala logarítmica)
 masa_corporal <- 10^seq(-2, 5, length.out = 2000)  # desde 0.01 kg a 100,000 kg
 
@@ -21,7 +24,9 @@ combinaciones_exponentes <- expand.grid(
     exp_leyenda = paste0("β = ", exponente_densidad)
   )
 
-# Create the ggplot
+# -------------------------------------------------------------------------
+
+# creamos la figura 
 ggplot(combinaciones_exponentes, aes(x = masa_corporal, y = uso_energia_total, color = exp_leyenda)) +
   geom_line(linewidth = 2) +
   scale_x_log10() +
